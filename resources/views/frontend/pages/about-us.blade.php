@@ -1,101 +1,46 @@
 @extends('frontend.layouts.master')
 
-@section('title','E-SHOP || About Us')
+@section('title','THE CRAZIES || About Us')
 
-@section('main-content')
+@section('hero')
 
-	<!-- Breadcrumbs -->
-	<div class="breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="bread-inner">
-						<ul class="bread-list">
-							<li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">About Us</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Breadcrumbs -->
+  @include("frontend.includes.header_section",["header_1"=>"ABOUT US","para"=>"The story behind our brand and what makes us different"])
 
-	<!-- About Us -->
-	<section class="about-us section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-12">
-						<div class="about-content">
-							@php
-								$settings=DB::table('settings')->get();
-							@endphp
-							<h3>Welcome To <span>Eshop</span></h3>
-							<p>@foreach($settings as $data) {{$data->description}} @endforeach</p>
-							<div class="button">
-								<a href="{{route('blog')}}" class="btn">Our Blog</a>
-								<a href="{{route('contact')}}" class="btn primary">Contact Us</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-12">
-						<div class="about-img overlay">
-							{{-- <div class="button">
-								<a href="https://www.youtube.com/watch?v=nh2aYrGMrIE" class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
-							</div> --}}
-							<img src="@foreach($settings as $data) {{$data->photo}} @endforeach" alt="@foreach($settings as $data) {{$data->photo}} @endforeach">
-						</div>
-					</div>
-				</div>
-			</div>
-	</section>
-	<!-- End About Us -->
+  <section class="about-hero text-white" id="hero-section">
+    <div class="container">
+      <p>
+        At The Crazies, we celebrate what makes you different. Our name reclaims the word “crazy,” turning it from a label into a symbol of pride.<br><br>
+        For us, being called crazy means you're bold enough to break the rules, defy expectations, and chase your dreams without apology.<br><br>
+        We're not just another cap brand. Every piece we create is a badge of honour, a statement for those who dare to go against the grain and push beyond limits.<br><br>
+        The Crazies is for the dreamers, the rebels, the fearless, the ones who embrace their uniqueness and turn it into power.
+      </p>
+    </div>
+  </section>
 
+  <section class="values-section">
+    <div class="container">
+      <h2 class="mb-5">OUR VALUES</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="value-box">
+            <h5><strong>AUTHENTICITY</strong></h5>
+            <p>We believe in being true to yourself. Our designs reflect individuality and the courage to express who you really are.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="value-box">
+            <h5><strong>QUALITY</strong></h5>
+            <p>Every product we create is made with premium materials and meticulous attention to detail, ensuring both style and durability.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="value-box">
+            <h5><strong>CREATIVITY</strong></h5>
+            <p>We push boundaries in design, always looking for innovative ways to stand out and make a statement with our collections.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<!-- Start Shop Services Area -->
-	<section class="shop-services section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
-						<p>Within 30 days returns</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-lock"></i>
-						<h4>Sucure Payment</h4>
-						<p>100% secure payment</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-				<div class="col-lg-3 col-md-6 col-12">
-					<!-- Start Single Service -->
-					<div class="single-service">
-						<i class="ti-tag"></i>
-						<h4>Best Peice</h4>
-						<p>Guaranteed price</p>
-					</div>
-					<!-- End Single Service -->
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Shop Services Area -->
-
-	@include('frontend.layouts.newsletter')
 @endsection

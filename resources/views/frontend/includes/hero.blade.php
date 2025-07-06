@@ -1,9 +1,4 @@
-@extends('frontend.layouts.master')
-@section('title','THE CRAZIES || HOME')
-
-@section("hero")
-     <!-- Hero Section -->
-  <section class="hero">
+<section class="hero">
     <!-- Breadcrumb -->
     <div class="breadcrumb-container">
       <nav aria-label="breadcrumb">
@@ -18,4 +13,3 @@
       <button class="btn btn-cta">Explore Collection</button>
     </div>
   </section>
-@endsection
