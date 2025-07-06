@@ -34,8 +34,9 @@ use Illuminate\Support\Facades\Auth;
     // CACHE CLEAR ROUTE
     Route::get('cache-clear', function () {
         Artisan::call('optimize:clear');
-        request()->session()->flash('success', 'Successfully cache cleared.');
-        return redirect()->back();
+        // request()->session()->flash('success', 'Successfully cache cleared.');
+        // return redirect()->back();
+        return redirect()->back()->with('success', 'Successfully cache cleared.');
     })->name('cache.clear');
 
 
@@ -71,13 +72,18 @@ use Illuminate\Support\Facades\Auth;
     Route::get('/home', [FrontendController::class, 'index']);
     Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('about-us');
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
-    Route::get('/newsletter', [FrontendController::class, 'newsletter'])->name('newsletter');
     Route::post('/contact/message', [MessageController::class, 'store'])->name('contact.store');
     Route::get('product-detail/{slug}', [FrontendController::class, 'productDetail'])->name('product-detail');
     Route::post('/product/search', [FrontendController::class, 'productSearch'])->name('product.search');
     Route::get('/product-cat/{slug}', [FrontendController::class, 'productCat'])->name('product-cat');
     Route::get('/product-sub-cat/{slug}/{sub_slug}', [FrontendController::class, 'productSubCat'])->name('product-sub-cat');
     Route::get('/product-brand/{slug}', [FrontendController::class, 'productBrand'])->name('product-brand');
+
+// Custom Frontend Routes
+
+    Route::get('/newsletter', [FrontendController::class, 'newsletter'])->name('newsletter');
+    // Route::post('/newsletter', [FrontendController::class, 'subscribe'])->name('newsletter.subscribe');
+
 // Cart section
     Route::get('/add-to-cart/{slug}', [CartController::class, 'addToCart'])->name('add-to-cart')->middleware('user');
     Route::post('/add-to-cart', [CartController::class, 'singleAddToCart'])->name('single-add-to-cart')->middleware('user');
@@ -113,7 +119,7 @@ use Illuminate\Support\Facades\Auth;
     Route::get('blog-tag/{slug}', [FrontendController::class, 'blogByTag'])->name('blog.tag');
 
 // NewsLetter
-    Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('subscribe');
+    Route::post('/subscribe', [FrontendController::class, 'subscribe'])->name('newsletter.subscribe');
 
 // Product Review
     Route::resource('/review', 'ProductReviewController');

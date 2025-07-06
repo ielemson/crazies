@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Helpers;
 use App\Models\Message;
 use App\Models\Category;
 use App\Models\PostTag;
@@ -11,7 +11,7 @@ use App\Models\Cart;
 use Illuminate\Support\Str;
 
 // use Auth;
-class Helper
+class Helpers
 {
     public static function messageList()
     {
